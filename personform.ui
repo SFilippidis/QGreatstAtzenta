@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    User Interface file for the form for contact's data.
+
+    Copyright (C) 2011-2015 Stavros Filippidis
+    Contact: stavros@filippidis.name
+
+    This file is part of QGreatstAtzenta.
+
+    QGreatstAtzenta is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+  
+    QGreatstAtzenta is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with QGreatstAtzenta.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<ui version="4.0">
+ <class>PersonForm</class>
+ <widget class="QDialog" name="PersonForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>913</width>
+    <height>597</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_10">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_17">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QGroupBox" name="groupBox">
+           <property name="title">
+            <string>Personal data</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>First name:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>nameEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="nameEdit"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>Last name:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>sirnameEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="sirnameEdit"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_2">
+                  <item>
+                   <widget class="QLabel" name="label_3">
+                    <property name="text">
+                     <string>Job description:</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>jobTitleEdit</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_4">
+                    <property name="text">
+                     <string>Company name:</string>
+                    </property>
+                    <property name="buddy">
+                     <cstring>companyEdit</cstring>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout">
+                  <item>
+                   <widget class="QLineEdit" name="jobTitleEdit"/>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="companyEdit"/>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_2">
+           <property name="title">
+            <string>Telephone and fax numbers</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_11">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <item>
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string>Home phone:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>homePhone1Edit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_8">
+                  <property name="text">
+                   <string>Work phone:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>workPhone1Edit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_10">
+                  <property name="text">
+                   <string>Mobile phone:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>mobilePhone1Edit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_11">
+                  <property name="text">
+                   <string>Other phone:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>otherPhone1Edit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_13">
+                  <property name="text">
+                   <string>Home fax:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>homeFaxEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <item>
+                 <widget class="QLineEdit" name="homePhone1Edit"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="workPhone1Edit"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="mobilePhone1Edit">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="otherPhone1Edit"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="homeFaxEdit"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_8">
+                <item>
+                 <widget class="QLabel" name="label_6">
+                  <property name="text">
+                   <string>Home phone (2nd):</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>homePhone2Edit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_7">
+                  <property name="text">
+                   <string>Work phone (2nd):</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>workPhone2Edit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_9">
+                  <property name="text">
+                   <string>Mobile phone (2nd):</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>mobilePhone2Edit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_12">
+                  <property name="text">
+                   <string>Other phone (2nd):</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>otherPhone2Edit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_14">
+                  <property name="text">
+                   <string>Other fax:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>workFaxEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_6">
+                <item>
+                 <widget class="QLineEdit" name="homePhone2Edit"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="workPhone2Edit"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="mobilePhone2Edit">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="otherPhone2Edit"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="workFaxEdit"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_3">
+           <property name="title">
+            <string>Email address and website</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_12">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_9">
+                <item>
+                 <widget class="QLabel" name="label_15">
+                  <property name="text">
+                   <string>Home email:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>homeEmailEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_17">
+                  <property name="text">
+                   <string>Home website:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>homeUrlEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_10">
+                <item>
+                 <widget class="QLineEdit" name="homeEmailEdit"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="homeUrlEdit"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_11">
+                <item>
+                 <widget class="QLabel" name="label_16">
+                  <property name="text">
+                   <string>Work email:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>workEmailEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_18">
+                  <property name="text">
+                   <string>Work website:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>workUrlEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_12">
+                <item>
+                 <widget class="QLineEdit" name="workEmailEdit"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="workUrlEdit"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBox_4">
+           <property name="title">
+            <string>Postal address</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_13">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_13">
+                <item>
+                 <widget class="QLabel" name="label_19">
+                  <property name="text">
+                   <string>Home address:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>homeAddressEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_20">
+                  <property name="text">
+                   <string>Home ZIP code:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>homeZipCodeEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="Line" name="line">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_21">
+                  <property name="text">
+                   <string>Work address:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>workAddressEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_22">
+                  <property name="text">
+                   <string>Work ZIP code:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>workZipCodeEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_14">
+                <item>
+                 <widget class="QLineEdit" name="homeAddressEdit"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="homeZipCodeEdit"/>
+                </item>
+                <item>
+                 <widget class="Line" name="line_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="workAddressEdit">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="workZipCodeEdit"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_15">
+                <item>
+                 <widget class="QLabel" name="label_24">
+                  <property name="text">
+                   <string>Home city:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>homeCityEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_25">
+                  <property name="text">
+                   <string>Home country:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>homeCountryEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="Line" name="line_3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_26">
+                  <property name="text">
+                   <string>Work city:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>workCityEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_27">
+                  <property name="text">
+                   <string>Work country:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>workCountryEdit</cstring>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_16">
+                <item>
+                 <widget class="QLineEdit" name="homeCityEdit"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="homeCountryEdit"/>
+                </item>
+                <item>
+                 <widget class="Line" name="line_5">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="workCityEdit">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="workCountryEdit"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>Notes</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QPlainTextEdit" name="notesEdit"/>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_8">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="addButton">
+         <property name="text">
+          <string>Submit</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="cancelButton">
+         <property name="text">
+          <string>Cancel</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>nameEdit</tabstop>
+  <tabstop>sirnameEdit</tabstop>
+  <tabstop>jobTitleEdit</tabstop>
+  <tabstop>companyEdit</tabstop>
+  <tabstop>homePhone1Edit</tabstop>
+  <tabstop>homePhone2Edit</tabstop>
+  <tabstop>workPhone1Edit</tabstop>
+  <tabstop>workPhone2Edit</tabstop>
+  <tabstop>mobilePhone1Edit</tabstop>
+  <tabstop>mobilePhone2Edit</tabstop>
+  <tabstop>otherPhone1Edit</tabstop>
+  <tabstop>otherPhone2Edit</tabstop>
+  <tabstop>homeFaxEdit</tabstop>
+  <tabstop>workFaxEdit</tabstop>
+  <tabstop>homeEmailEdit</tabstop>
+  <tabstop>workEmailEdit</tabstop>
+  <tabstop>homeUrlEdit</tabstop>
+  <tabstop>workUrlEdit</tabstop>
+  <tabstop>homeAddressEdit</tabstop>
+  <tabstop>homeCityEdit</tabstop>
+  <tabstop>homeZipCodeEdit</tabstop>
+  <tabstop>homeCountryEdit</tabstop>
+  <tabstop>workAddressEdit</tabstop>
+  <tabstop>workCityEdit</tabstop>
+  <tabstop>workZipCodeEdit</tabstop>
+  <tabstop>workCountryEdit</tabstop>
+  <tabstop>notesEdit</tabstop>
+  <tabstop>addButton</tabstop>
+  <tabstop>cancelButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

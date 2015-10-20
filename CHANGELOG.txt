@@ -1,0 +1,86 @@
+2015-10-20  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 1.3.2 released.
+	* Minor changes.
+   	
+2015-10-19  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 1.3.1 released.
+ 	* More detailed instruction files provided.
+   	* Other source code changes.
+   	
+2015-10-05  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 1.3 released.
+ 	* The absolute path of the database file will be displayed.
+   	* Other source code changes.
+
+2015-09-24  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 1.2 released.
+ 	* New "How To Compile.txt" file with compile info.
+	* Change of some messages displayed (change .dat to .database).
+	* Changes to source code for the case of "Cancel" at "Search".
+   	* Other source code changes.
+
+2014-07-24  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 1.1 released.
+	* Major refactoring and changes to source code.
+	* Source for every slot/method now in seperate file.
+	* Change of string handling.
+	* Other source code changes.
+	
+2014-07-19  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 1.0 released.
+	* Search capabilities added.
+	* Additional comments.
+	* Source code changes.
+
+2014-07-17  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 0.9 released.
+	
+	* Change of the about menus implementation.
+	* Remove of other menus.
+	* Additional comments.
+	* Source code changes.
+
+2013-07-08  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 0.8 released.
+	* Available for more platforms.
+	* User's contacts are being saved to a file named
+	  QGreatstAtzenta.database at user's home directory
+	  for simplicity.
+	* Source code changes.
+
+2013-07-04  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 0.7.2 released.
+	* Compiled again to include possible bug fixes.
+
+2013-02-19  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 0.7.1 released.
+	* Changes to source code (part for using contacts' file).
+
+2013-02-19  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 0.7 released.
+	* Added menu options.
+	* User can now save the contacts' file where they want.
+	* Multiple contacts' files can be used.
+	* Changes to the source code.
+
+2013-02-15  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 0.6.1 released.
+	* Minor changes to project file in order to use icon when possible.
+	* Other Minor changes.
+
+2013-02-11  Stavros Filippidis  <stavros@filippidis.name>
+
+	* Version 0.6 released, now placed under the GNU General Public License.
+	* Changes to the source code for compatibility and improvements.

@@ -1,0 +1,33 @@
+In order to compile QGreatstAtzenta, you need to perform the following steps:
+
+For systems running GNU/Linux or OS X:
+
+1. Install Qt SDK.
+
+2. Open a terminal.
+
+3. In the directory of QGreatstAtzenta source code, run:
+
+qmake QGreatstAtzenta.pro
+
+4. Finally, run:
+
+make
+
+For systems running Windows:
+
+1. Install Qt SDK.
+
+2. Open Qt Command Prompt.
+
+3. In the directory of QGreatstAtzenta source code, run:
+
+qmake QGreatstAtzenta.pro
+
+4. Finally, run:
+
+mingw32-make
+
+Or, if using Qt SDK for Visual Studio, run:
+
+nmake

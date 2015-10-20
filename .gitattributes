@@ -1,0 +1,12 @@
+* text=auto
+*.md text eol=crlf
+*.txt text eol=crlf
+*.cpp text eol=crlf
+*.h text eol=crlf
+*.ui text eol=crlf
+*.pro text eol=crlf
+*.gitattributes text eol=crlf
+*.gitignore text eol=crlf
+*.rc text eol=crlf
+*.icns binary
+*.ico binary
