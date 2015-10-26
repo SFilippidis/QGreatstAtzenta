@@ -28,7 +28,7 @@ void MainWindow::on_deleteButton_clicked()
     {
         QString title = QString::fromWCharArray(L"No chosen contacts");
         QString text = QString::fromWCharArray(L"You did not choose a contact to delete.\n\nNo contacts were deleted.");
-        this->infoWindow(text, title, QMessageBox::Critical);
+        infoWindow(text, title, QMessageBox::Critical);
         return;
     } // end if
     QMessageBox msgBox;
