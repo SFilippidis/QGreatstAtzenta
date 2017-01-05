@@ -1,6 +1,6 @@
 // MainWindow::on_addButton_clicked slot implementation.
 
-// Copyright (C) 2011-2015 Stavros Filippidis
+// Copyright (C) 2011-2017 Stavros Filippidis
 // Contact: stavros@filippidis.name
 
 // This file is part of QGreatstAtzenta.
