@@ -1,6 +1,7 @@
 2017-01-05  Stavros Filippidis  <stavros@filippidis.name>
 
 	* Development of next version (currently named 1.3.3-beta).
+	* Changed type of license's message box.
 	* Minor changes.
 	
 2015-10-20  Stavros Filippidis  <stavros@filippidis.name>
