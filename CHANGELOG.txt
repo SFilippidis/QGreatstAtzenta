@@ -1,6 +1,6 @@
-2015-10-20  Stavros Filippidis  <stavros@filippidis.name>
+2017-01-05  Stavros Filippidis  <stavros@filippidis.name>
 
-	* Started development of next version (currently named 1.3.3-beta).
+	* Development of next version (currently named 1.3.3-beta).
 	* Minor changes.
 	
 2015-10-20  Stavros Filippidis  <stavros@filippidis.name>
