@@ -1,7 +1,7 @@
 #  Project file for QGreatstAtzenta.
 #
-#  Copyright (C) 2011-2017 Stavros Filippidis
-#  Contact: stavros@filippidis.name
+#  Copyright (C) 2011-2018 Stavros Filippidis
+#  Contact: sfilippidis@gmail.com
 #
 #  This file is part of QGreatstAtzenta.
 #
