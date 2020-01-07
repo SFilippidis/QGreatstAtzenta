@@ -1,3 +1,7 @@
+2020-01-07  Stavros Filippidis  <sfilippidis@gmail.com>
+
+	* Preparing for next release (temporary named 1.3.4+)
+
 2018-07-23  Stavros Filippidis  <sfilippidis@gmail.com>
 
 	* Version 1.3.4 released.
