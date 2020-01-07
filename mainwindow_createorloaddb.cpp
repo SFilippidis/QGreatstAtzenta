@@ -1,6 +1,6 @@
 // MainWindow::createOrLoadDb method implementation.
 
-// Copyright (C) 2011-2018 Stavros Filippidis
+// Copyright (C) 2011-2020 Stavros Filippidis
 // Contact: sfilippidis@gmail.com
 
 // This file is part of QGreatstAtzenta.
