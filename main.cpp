@@ -29,4 +29,4 @@ int main(int argc, char *argv[])
     MainWindow window;
     window.show();
     return application.exec();
-} // end function "main"
+} // int main(int argc, char *argv[])

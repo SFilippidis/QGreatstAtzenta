@@ -24,6 +24,6 @@
 enum {
     PERSON_IS_OLD = 0,
     PERSON_IS_NEW = 1
-}; // end enum
+}; // enum
 
-#endif // PERSON_ENUM_H
+#endif

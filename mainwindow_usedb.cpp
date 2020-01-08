@@ -27,4 +27,4 @@ void MainWindow::useDb()
     databaseFileName = QDir::homePath() + QString::fromWCharArray(L"/QGreatstAtzenta.database");
     createOrLoadDb(databaseFileName);
     resetModelViewLayout();
-} // end function "MainWindow::useDb"
+} // void MainWindow::useDb()

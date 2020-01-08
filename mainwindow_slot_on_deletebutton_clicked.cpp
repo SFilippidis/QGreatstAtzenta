@@ -30,7 +30,7 @@ void MainWindow::on_deleteButton_clicked()
         QString text = QString::fromWCharArray(L"You did not choose a contact to delete.\n\nNo contacts were deleted.");
         infoWindow(text, title, QMessageBox::Critical);
         return;
-    } // end if
+    } // if (!(m_ui->view->selectionModel()->isSelected(m_ui->view->currentIndex())))
     QMessageBox msgBox;
 #if defined(Q_OS_WIN)
     msgBox.setWindowTitle(QString::fromWCharArray(L"Delete a contact"));
@@ -45,11 +45,11 @@ void MainWindow::on_deleteButton_clicked()
     msgBox.setDefaultButton(QMessageBox::No);
     msgBox.setIcon(QMessageBox::Warning);
     int ret = msgBox.exec();
-    if ( ret == QMessageBox::Yes )
+    if (ret == QMessageBox::Yes)
     {
         m_model->removeRow(m_ui->view->currentIndex().row());
         m_model->select();
         m_ui->view->resizeColumnsToContents();
         m_header->setStretchLastSection(true);
-    } // end if
-} // end function "MainWindow::on_deleteButton_clicked"
+    } // if (ret == QMessageBox::Yes)
+} // void MainWindow::on_deleteButton_clicked()

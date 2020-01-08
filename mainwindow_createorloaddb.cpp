@@ -33,14 +33,14 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
         QString databaseErrorTitle = QString::fromWCharArray(L"Error with the contacts' file");
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
-    } // end if
+    } // if (!database.open())
     if ((!databaseDidNotExistWhenAppStarted) && (!database.tables().contains("atzenta")))
     {
         QString databaseErrorInfoText = QString::fromWCharArray(L"File <b>QGreatstAtzenta.database</b> in your home directory is not a contacts' file! Please rename the file QGreatstAtzenta.database in your home directory (or delete it if you are sure you do not need it) and run the application again!");
         QString databaseErrorTitle = QString::fromWCharArray(L"Wrong contacts' file");
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
-    } // end if
+    } // if ((!databaseDidNotExistWhenAppStarted) && (!database.tables().contains("atzenta")))
     if (databaseDidNotExistWhenAppStarted)
     {
         QSqlQuery query;
@@ -49,5 +49,5 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
         helloText += databaseFileName;
         QString helloTitle = QString::fromWCharArray(L"About the file QGreatstAtzenta.database");
         infoWindow(helloText, helloTitle, QMessageBox::Information);
-    } // end if
-} // end function "MainWindow::createOrLoadDb"
+    } // if (databaseDidNotExistWhenAppStarted)
+} // void MainWindow::createOrLoadDb(QString databaseFileName)

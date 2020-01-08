@@ -28,5 +28,5 @@ void MainWindow::on_addButton_clicked()
     PersonForm form(PERSON_IS_NEW, m_model, m_ui->view, this);
     form.exec();
     resetModelViewLayout();
-} // end function "MainWindow::on_addButton_clicked"
+} // void MainWindow::on_addButton_clicked()
 

@@ -23,4 +23,4 @@
 void PersonForm::on_cancelButton_clicked()
 {
     close();
-} // end of function "PersonForm::on_cancelButton_clicked"
+} // void PersonForm::on_cancelButton_clicked()

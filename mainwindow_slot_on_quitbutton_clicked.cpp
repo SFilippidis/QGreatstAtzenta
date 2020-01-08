@@ -23,4 +23,4 @@
 void MainWindow::on_quitButton_clicked()
 {
     close();
-} // end function "MainWindow::on_quitButton_clicked"
+} // void MainWindow::on_quitButton_clicked()

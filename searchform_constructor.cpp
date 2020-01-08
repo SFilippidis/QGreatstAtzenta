@@ -30,4 +30,4 @@ SearchForm::SearchForm(QSqlTableModel *model, bool *cancel, QWidget *parent) :
 {
     m_ui->setupUi(this);
     setWindowTitle(QString::fromWCharArray(L"Search within all fields of all contacts"));
-} // end function "SearchForm::SearchForm"
+} // SearchForm::SearchForm(QSqlTableModel *model, bool *cancel, QWidget *parent)

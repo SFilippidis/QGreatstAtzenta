@@ -24,5 +24,5 @@
 MainWindow::~MainWindow()
 {
     delete m_ui;
-} // end function "MainWindow::~MainWindow"
+} // MainWindow::~MainWindow()
 

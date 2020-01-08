@@ -24,5 +24,5 @@
 PersonForm::~PersonForm()
 {
     delete m_ui;
-} // end function "PersonForm::~PersonForm"
+} // PersonForm::~PersonForm()
 

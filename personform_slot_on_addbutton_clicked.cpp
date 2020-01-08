@@ -27,7 +27,7 @@
 
 void PersonForm::on_addButton_clicked()
 {
-    if(m_isNew)
+    if (m_isNew)
     {
         QSqlRecord record = m_model->record();
         record.setValue(ATZENTA_NAME, QVariant(m_ui->nameEdit->text()));
@@ -59,8 +59,8 @@ void PersonForm::on_addButton_clicked()
         record.setValue(ATZENTA_WORK_COUNTRY, QVariant(m_ui->workCountryEdit->text()));
         record.setValue(ATZENTA_NOTES, QVariant(m_ui->notesEdit->toPlainText()));
         m_model->insertRecord(-1,record);
-    } // end of then
-    else
+    } // if (m_isNew)
+    else // if (m_isNew)
         m_mapper->submit();
     close();
-} // end function "PersonForm::on_addButton_clicked"
+} // void PersonForm::on_addButton_clicked()

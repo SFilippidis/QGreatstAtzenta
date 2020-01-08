@@ -31,9 +31,9 @@ void MainWindow::on_editOrViewButton_clicked()
         QString text = QString::fromWCharArray(L"You did not choose a contact to view and/or edit.");
         infoWindow(text, title, QMessageBox::Critical);
         return;
-    } // end if
+    } // if (!( m_ui->view->selectionModel()->isSelected(m_ui->view->currentIndex())))
     PersonForm form(PERSON_IS_OLD, m_model, m_ui->view, this);
     form.exec();
     m_ui->view->resizeColumnsToContents();
     m_header->setStretchLastSection(true);
-} // end function "MainWindow::on_editOrViewButton_clicked"
+} // void MainWindow::on_editOrViewButton_clicked()
