@@ -61,8 +61,6 @@ void PersonForm::on_addButton_clicked()
         m_model->insertRecord(-1,record);
     } // end of then
     else
-    {
         m_mapper->submit();
-    } // end if
     close();
 } // end function "PersonForm::on_addButton_clicked"
