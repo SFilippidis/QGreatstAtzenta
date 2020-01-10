@@ -66,5 +66,5 @@ void MainWindow::resetModelViewLayout()
     m_ui->view->resizeColumnsToContents();
     m_header->setStretchLastSection(true);
     m_ui->searchButton->setText(QString::fromWCharArray(L"Search..."));
-} // void MainWindow::resetModelViewLayout()
+}
 

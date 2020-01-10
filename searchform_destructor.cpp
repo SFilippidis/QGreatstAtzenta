@@ -24,5 +24,5 @@
 SearchForm::~SearchForm()
 {
     delete m_ui;
-} // SearchForm::~SearchForm()
+}
 

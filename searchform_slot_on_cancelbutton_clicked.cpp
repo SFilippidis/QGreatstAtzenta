@@ -24,4 +24,4 @@ void SearchForm::on_cancelButton_clicked()
 {
     *m_cancel = true;
     close();
-} // SearchForm::on_cancelButton_clicked()
+}

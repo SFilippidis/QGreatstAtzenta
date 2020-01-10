@@ -30,7 +30,7 @@ void MainWindow::on_searchButton_clicked()
         setWindowTitle(QString::fromWCharArray(L"QGreatstAtzenta"));
         m_ui->searchButton->setText(QString::fromWCharArray(L"Search..."));
         return;
-    } // if (m_ui->searchButton->text()==QString::fromWCharArray(L"Show all"))
+    }
 
     bool *isCancelChosen = new(bool);
     *isCancelChosen = false;
@@ -42,4 +42,4 @@ void MainWindow::on_searchButton_clicked()
         setWindowTitle(QString::fromWCharArray(L"QGreatstAtzenta - showing selected contacts"));
         m_ui->searchButton->setText(QString::fromWCharArray(L"Show all"));
     }
-} // void MainWindow::on_searchButton_clicked()
+}

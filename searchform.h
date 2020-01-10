@@ -27,7 +27,7 @@ class QSqlTableModel;
 
 namespace Ui {
 class SearchForm;
-} // namespace Ui
+}
 
 class SearchForm : public QDialog
 {
@@ -43,6 +43,6 @@ private:
     QSqlTableModel *m_model;
     bool *m_cancel;
     QString m_searchString;
-}; // class SearchForm
+};
 
 #endif
