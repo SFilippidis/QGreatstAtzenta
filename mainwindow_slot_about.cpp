@@ -22,8 +22,8 @@
 
 void MainWindow::about()
 {
-    QString licenceAndInfoText = QString::fromWCharArray(L"QGreatstAtzenta. Version 1.3.4+. A program for organizing your "
-                                                         "contacts.<BR><BR>Copyright (C) "
+    QString licenceAndInfoText = QString::fromWCharArray(L"QGreatstAtzenta. Version 1.3.4+. A program for organizing your contacts.<BR><BR>"
+                                                         "Copyright (C) "
                                                          "2011-2020 Stavros Filippidis<BR>"
                                                          "email: <A HREF='mailto:sfilippidis"
                                                          "@gmail.com'>sfilippidis@gmail.com"
