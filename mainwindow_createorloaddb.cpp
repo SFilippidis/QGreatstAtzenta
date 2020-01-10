@@ -29,14 +29,26 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
     database.setDatabaseName(databaseFileName);
     if (!database.open())
     {
-        QString databaseErrorInfoText = QString::fromWCharArray(L"There was an error with the file <b>QGreatstAtzenta.database</b> in your home directory! Please rename the file QGreatstAtzenta.database in your home directory (or delete it if you are sure you do not need it) and run the application again!");
+        QString databaseErrorInfoText = QString::fromWCharArray(L"There was an error with the file "
+                                                                "<b>QGreatstAtzenta.database</b> in "
+                                                                "your home directory! Please rename "
+                                                                "the file QGreatstAtzenta.database in"
+                                                                " your home directory (or delete it "
+                                                                "if you are sure you do not need it) "
+                                                                "and run the application again!");
         QString databaseErrorTitle = QString::fromWCharArray(L"Error with the contacts' file");
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
     }
     if ((!databaseDidNotExistWhenAppStarted) && (!database.tables().contains("atzenta")))
     {
-        QString databaseErrorInfoText = QString::fromWCharArray(L"File <b>QGreatstAtzenta.database</b> in your home directory is not a contacts' file! Please rename the file QGreatstAtzenta.database in your home directory (or delete it if you are sure you do not need it) and run the application again!");
+        QString databaseErrorInfoText = QString::fromWCharArray(L"File <b>QGreatstAtzenta.database</b> "
+                                                                "in your home directory is not a "
+                                                                "contacts' file! Please rename the file"
+                                                                " QGreatstAtzenta.database in your home"
+                                                                " directory (or delete it if you are "
+                                                                "sure you do not need it) and run the "
+                                                                "application again!");
         QString databaseErrorTitle = QString::fromWCharArray(L"Wrong contacts' file");
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
@@ -44,8 +56,26 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
     if (databaseDidNotExistWhenAppStarted)
     {
         QSqlQuery query;
-        query.exec(QString::fromWCharArray(L"CREATE TABLE atzenta (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(30), sirname VARCHAR(40), jobtitle VARCHAR(60), company VARCHAR(80), homephone1 VARCHAR(20), homephone2 VARCHAR(20), workphone1 VARCHAR(20), workphone2 VARCHAR(20), mobilephone1 VARCHAR(20), mobilephone2 VARCHAR(20), otherphone1 VARCHAR(20), otherphone2 VARCHAR(20), homefax VARCHAR(20), workfax VARCHAR(20), homeemail VARCHAR(60), workemail VARCHAR(60), homeurl VARCHAR(150), workurl VARCHAR(150), homeaddress VARCHAR(60), homecity VARCHAR(30), homezipcode VARCHAR(20), homecountry VARCHAR(40), workaddress VARCHAR(60), workcity VARCHAR(30), workzipcode VARCHAR(20), workcountry VARCHAR(40), notes VARCHAR(256) )"));
-        QString helloText = QString::fromWCharArray(L"A file named <b>QGreatstAtzenta.database</b> has been created in your home directory. The contacts will be saved there. <BR><BR>If you would like to delete your contacts, you should manualy delete this file yourself.<BR><BR>The location of the file is:<BR><BR>");
+        query.exec(QString::fromWCharArray(L"CREATE TABLE atzenta (id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                                           "name VARCHAR(30), sirname VARCHAR(40), jobtitle VARCHAR(60), "
+                                           "company VARCHAR(80), homephone1 VARCHAR(20), "
+                                           "homephone2 VARCHAR(20), workphone1 VARCHAR(20), "
+                                           "workphone2 VARCHAR(20), mobilephone1 VARCHAR(20), "
+                                           "mobilephone2 VARCHAR(20), otherphone1 VARCHAR(20), "
+                                           "otherphone2 VARCHAR(20), homefax VARCHAR(20), "
+                                           "workfax VARCHAR(20), homeemail VARCHAR(60), "
+                                           "workemail VARCHAR(60), homeurl VARCHAR(150), "
+                                           "workurl VARCHAR(150), homeaddress VARCHAR(60), "
+                                           "homecity VARCHAR(30), homezipcode VARCHAR(20), "
+                                           "homecountry VARCHAR(40), workaddress VARCHAR(60), "
+                                           "workcity VARCHAR(30), workzipcode VARCHAR(20), "
+                                           "workcountry VARCHAR(40), notes VARCHAR(256) )"));
+        QString helloText = QString::fromWCharArray(L"A file named <b>QGreatstAtzenta.database</b> "
+                                                    "has been created in your home directory. The "
+                                                    "contacts will be saved there. <BR><BR>If you would"
+                                                    " like to delete your contacts, you should manualy"
+                                                    " delete this file yourself.<BR><BR>The location of"
+                                                    " the file is:<BR><BR>");
         helloText += databaseFileName;
         QString helloTitle = QString::fromWCharArray(L"About the file QGreatstAtzenta.database");
         infoWindow(helloText, helloTitle, QMessageBox::Information);
