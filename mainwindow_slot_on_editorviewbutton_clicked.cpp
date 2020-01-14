@@ -25,8 +25,7 @@
 
 void MainWindow::on_editOrViewButton_clicked()
 {
-    if (!( m_ui->view->selectionModel()->isSelected(m_ui->view->currentIndex())))
-    {
+    if (!( m_ui->view->selectionModel()->isSelected(m_ui->view->currentIndex()))) {
         QString title = QString::fromWCharArray(L"No chosen contacts");
         QString text = QString::fromWCharArray(L"You did not choose a contact to view and/or edit.");
         infoWindow(text, title, QMessageBox::Critical);

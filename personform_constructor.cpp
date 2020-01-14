@@ -65,9 +65,8 @@ PersonForm::PersonForm(bool isNew, QSqlTableModel *model, QTableView *view, QWid
     m_mapper->addMapping(m_ui->notesEdit, ATZENTA_NOTES);
     if (m_isNew)
         setWindowTitle(QString::fromWCharArray(L"Create a new contact"));
-    else
-    {
+    else {
         setWindowTitle(QString::fromWCharArray(L"View and edit an existing contact"));
         m_mapper->setCurrentIndex(view->currentIndex().row());
-    } // if (m_isNew)
+    }
 }

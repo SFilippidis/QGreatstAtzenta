@@ -27,8 +27,7 @@
 
 void PersonForm::on_addButton_clicked()
 {
-    if (m_isNew)
-    {
+    if (m_isNew) {
         QSqlRecord record = m_model->record();
         record.setValue(ATZENTA_NAME, QVariant(m_ui->nameEdit->text()));
         record.setValue(ATZENTA_SIRNAME, QVariant(m_ui->sirnameEdit->text()));

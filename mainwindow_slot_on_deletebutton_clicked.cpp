@@ -24,8 +24,7 @@
 
 void MainWindow::on_deleteButton_clicked()
 {
-    if (!(m_ui->view->selectionModel()->isSelected(m_ui->view->currentIndex())))
-    {
+    if (!(m_ui->view->selectionModel()->isSelected(m_ui->view->currentIndex()))) {
         QString title = QString::fromWCharArray(L"No chosen contacts");
         QString text = QString::fromWCharArray(L"You did not choose a contact to delete.\n\nNo contacts "
                                                "were deleted.");
@@ -46,8 +45,7 @@ void MainWindow::on_deleteButton_clicked()
     msgBox.setDefaultButton(QMessageBox::No);
     msgBox.setIcon(QMessageBox::Warning);
     int ret = msgBox.exec();
-    if (ret == QMessageBox::Yes)
-    {
+    if (ret == QMessageBox::Yes) {
         m_model->removeRow(m_ui->view->currentIndex().row());
         m_model->select();
         m_ui->view->resizeColumnsToContents();

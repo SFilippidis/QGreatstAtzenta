@@ -27,8 +27,7 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
     bool databaseDidNotExistWhenAppStarted = !QFile::exists(databaseFileName);
     QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
     database.setDatabaseName(databaseFileName);
-    if (!database.open())
-    {
+    if (!database.open()) {
         QString databaseErrorInfoText = QString::fromWCharArray(L"There was an error with the file <b>QGreatstAtzenta.database</b> in y"
                                                                 "our home directory! Please rename the file QGreatstAtzenta.database in"
                                                                 " your home directory (or delete it if you are sure you do not need it)"
@@ -37,8 +36,7 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
     }
-    if ((!databaseDidNotExistWhenAppStarted) && (!database.tables().contains("atzenta")))
-    {
+    if ((!databaseDidNotExistWhenAppStarted) && (!database.tables().contains("atzenta"))) {
         QString databaseErrorInfoText = QString::fromWCharArray(L"File <b>QGreatstAtzenta.database</b> in your home directory is not a "
                                                                 "contacts' file! Please rename the file QGreatstAtzenta.database in you"
                                                                 "r home directory (or delete it if you are sure you do not need it) and"
@@ -47,8 +45,7 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
     }
-    if (databaseDidNotExistWhenAppStarted)
-    {
+    if (databaseDidNotExistWhenAppStarted) {
         QSqlQuery query;
         query.exec(QString::fromWCharArray(L"CREATE TABLE atzenta (id INTEGER PRIMARY KEY AUTOINCREMENT, "
                                                                    "name VARCHAR(30), "
