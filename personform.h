@@ -31,8 +31,7 @@ class QSqlTableModel;
 class QTableView;
 class QDataWidgetMapper;
 
-class PersonForm : public QDialog
-{
+class PersonForm : public QDialog {
     Q_OBJECT
 public:
     explicit PersonForm(bool isNew, QSqlTableModel *model, QTableView *view, QWidget *parent = 0);

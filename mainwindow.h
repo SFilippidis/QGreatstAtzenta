@@ -31,8 +31,7 @@ namespace Ui {
 class QSqlTableModel;
 class QHeaderView;
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = 0);

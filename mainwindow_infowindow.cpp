@@ -20,7 +20,8 @@
 
 #include "mainwindow.h"
 
-void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon icon) {
+void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon icon)
+{
     QMessageBox msgBox;
 #if defined(Q_OS_WIN)
     msgBox.setWindowTitle(title);

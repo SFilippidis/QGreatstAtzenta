@@ -29,8 +29,7 @@ namespace Ui {
 class SearchForm;
 }
 
-class SearchForm : public QDialog
-{
+class SearchForm : public QDialog {
     Q_OBJECT
 public:
     explicit SearchForm(QSqlTableModel *model, bool *cancel, QWidget *parent = 0);

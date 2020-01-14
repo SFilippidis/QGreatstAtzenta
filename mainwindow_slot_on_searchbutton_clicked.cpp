@@ -30,12 +30,10 @@ void MainWindow::on_searchButton_clicked()
         m_ui->searchButton->setText(QString::fromWCharArray(L"Search..."));
         return;
     }
-
     bool *isCancelChosen = new(bool);
     *isCancelChosen = false;
     SearchForm form(m_model, isCancelChosen, this);
     form.exec();
-
     if(!*isCancelChosen) {
         setWindowTitle(QString::fromWCharArray(L"QGreatstAtzenta - showing selected contacts"));
         m_ui->searchButton->setText(QString::fromWCharArray(L"Show all"));
