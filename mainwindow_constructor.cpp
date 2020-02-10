@@ -33,4 +33,4 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(m_ui->actionAbout_QGreatstAtzenta, SIGNAL(triggered()), this, SLOT(about()));
     connect(m_ui->actionAbout_Qt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
     MainWindow::useDb();
-}
+} // MainWindow::MainWindow(QWidget *parent)

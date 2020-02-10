@@ -58,8 +58,8 @@ void PersonForm::on_addButton_clicked()
         record.setValue(ATZENTA_WORK_COUNTRY, QVariant(m_ui->workCountryEdit->text()));
         record.setValue(ATZENTA_NOTES, QVariant(m_ui->notesEdit->toPlainText()));
         m_model->insertRecord(-1,record);
-    }
+    } // then: if (m_isNew)
     else
         m_mapper->submit();
     close();
-}
+} // void PersonForm::on_addButton_clicked()

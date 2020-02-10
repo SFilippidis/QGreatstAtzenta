@@ -25,7 +25,7 @@
 
 namespace Ui {
     class PersonForm;
-}
+} // namespace Ui
 
 class QSqlTableModel;
 class QTableView;
@@ -45,6 +45,6 @@ private:
     QTableView *m_view;
     bool m_isNew;
     QDataWidgetMapper *m_mapper;
-};
+}; // class PersonForm
 
 #endif

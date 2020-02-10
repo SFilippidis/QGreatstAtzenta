@@ -68,5 +68,5 @@ PersonForm::PersonForm(bool isNew, QSqlTableModel *model, QTableView *view, QWid
     else {
         setWindowTitle(QString::fromWCharArray(L"View and edit an existing contact"));
         m_mapper->setCurrentIndex(view->currentIndex().row());
-    }
-}
+    } // else: if (m_isNew)
+} // PersonForm::PersonForm(bool isNew, QSqlTableModel *model, QTableView *view, QWidget *parent)

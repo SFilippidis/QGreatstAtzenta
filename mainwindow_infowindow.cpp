@@ -35,4 +35,4 @@ void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon i
     msgBox.setDefaultButton(QMessageBox::Ok);
     msgBox.setIcon(icon);
     msgBox.exec();
-}
+} // void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon icon)

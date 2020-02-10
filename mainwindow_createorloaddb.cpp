@@ -35,7 +35,7 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
         QString databaseErrorTitle = QString::fromWCharArray(L"Error with the contacts' file");
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
-    }
+    } // if (!database.open())
     if ((!databaseDidNotExistWhenAppStarted) && (!database.tables().contains("atzenta"))) {
         QString databaseErrorInfoText = QString::fromWCharArray(L"File <b>QGreatstAtzenta.database</b> in your home directory is not a "
                                                                 "contacts' file! Please rename the file QGreatstAtzenta.database in you"
@@ -44,7 +44,7 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
         QString databaseErrorTitle = QString::fromWCharArray(L"Wrong contacts' file");
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
-    }
+    } // if ((!databaseDidNotExistWhenAppStarted) && (!database.tables().contains("atzenta")))
     if (databaseDidNotExistWhenAppStarted) {
         QSqlQuery query;
         query.exec(QString::fromWCharArray(L"CREATE TABLE atzenta (id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -82,5 +82,5 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
         helloText += databaseFileName;
         QString helloTitle = QString::fromWCharArray(L"About the file QGreatstAtzenta.database");
         infoWindow(helloText, helloTitle, QMessageBox::Information);
-    }
-}
+    } // if (databaseDidNotExistWhenAppStarted)
+} // void MainWindow::createOrLoadDb(QString databaseFileName)

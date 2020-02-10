@@ -26,7 +26,7 @@
 
 namespace Ui {
     class MainWindow;
-}
+} // namespace Ui
 
 class QSqlTableModel;
 class QHeaderView;
@@ -51,6 +51,6 @@ private:
     void resetModelViewLayout();
     void createOrLoadDb(QString databaseFileName);
     void useDb();
-};
+}; // class MainWindow
 
 #endif

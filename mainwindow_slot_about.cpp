@@ -37,4 +37,4 @@ void MainWindow::about()
                                                          "gnu.org/licenses/'>http://www.gnu.org/licenses/</A>.<BR>");
     QString licenceTitle = QString::fromWCharArray(L"About QGreatstAtzenta");
     infoWindow(licenceAndInfoText, licenceTitle, QMessageBox::NoIcon);
-}
+} // void MainWindow::about()

@@ -81,4 +81,4 @@ void SearchForm::on_searchButton_clicked()
     m_searchString += QString::fromWCharArray(L"%'");
     m_model->setFilter(m_searchString);
     close();
-}
+} // void SearchForm::on_searchButton_clicked()

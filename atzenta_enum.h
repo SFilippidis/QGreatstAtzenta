@@ -50,6 +50,6 @@ enum {
     ATZENTA_WORK_ZIP_CODE = 25,
     ATZENTA_WORK_COUNTRY = 26,
     ATZENTA_NOTES = 27
-};
+}; // enum
 
 #endif
