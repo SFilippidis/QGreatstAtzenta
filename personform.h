@@ -25,14 +25,11 @@
 #include <QSqlTableModel>
 #include <QSqlRecord>
 #include <QDataWidgetMapper>
+#include <QTableView>
 
 namespace Ui {
     class PersonForm;
 } // namespace Ui
-
-class QSqlTableModel;
-class QTableView;
-class QDataWidgetMapper;
 
 class PersonForm : public QDialog {
     Q_OBJECT

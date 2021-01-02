@@ -27,13 +27,11 @@
 #include <QSqlQuery>
 #include <QSqlTableModel>
 #include <QDir>
+#include <QHeaderView>
 
 namespace Ui {
     class MainWindow;
 } // namespace Ui
-
-class QSqlTableModel;
-class QHeaderView;
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
