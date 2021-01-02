@@ -1,6 +1,7 @@
 2021-01-02  Stavros Filippidis  <sfilippidis@gmail.com>
 
 	* Version 1.3.5 released.
+	* Code refactoring.
 	* New website.
 
 2018-07-23  Stavros Filippidis  <sfilippidis@gmail.com>
