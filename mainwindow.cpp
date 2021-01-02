@@ -126,7 +126,7 @@ void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon i
 
 void MainWindow::about()
 {
-    QString licenceAndInfoText = QString::fromWCharArray(L"QGreatstAtzenta. Version 1.3.4+. A program for organizing your contacts.<BR>"
+    QString licenceAndInfoText = QString::fromWCharArray(L"QGreatstAtzenta. Version 1.3.5. A program for organizing your contacts.<BR>"
                                                          "<BR>Copyright (C) 2011-2021 Stavros Filippidis<BR>email: <A HREF='mailto:sfil"
                                                          "ippidis@gmail.com'>sfilippidis@gmail.com</A><BR>www: <A HREF='https://blogs.s"
                                                          "ch.gr/sfil/'>https://sfil.mysch.gr/</A><BR><BR>QGreatstAtzenta is free so"
