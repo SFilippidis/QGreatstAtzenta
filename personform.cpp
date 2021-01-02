@@ -1,6 +1,6 @@
-// PersonForm's constructor implementation.
+// Source code for the form for contact's data.
 
-// Copyright (C) 2011-2020 Stavros Filippidis
+// Copyright (C) 2011-2021 Stavros Filippidis
 // Contact: sfilippidis@gmail.com
 
 // This file is part of QGreatstAtzenta.
@@ -70,3 +70,52 @@ PersonForm::PersonForm(bool isNew, QSqlTableModel *model, QTableView *view, QWid
         m_mapper->setCurrentIndex(view->currentIndex().row());
     } // else: if (m_isNew)
 } // PersonForm::PersonForm(bool isNew, QSqlTableModel *model, QTableView *view, QWidget *parent)
+
+PersonForm::~PersonForm()
+{
+    delete m_ui;
+} // PersonForm::~PersonForm()
+
+void PersonForm::on_addButton_clicked()
+{
+    if (m_isNew) {
+        QSqlRecord record = m_model->record();
+        record.setValue(ATZENTA_NAME, QVariant(m_ui->nameEdit->text()));
+        record.setValue(ATZENTA_SIRNAME, QVariant(m_ui->sirnameEdit->text()));
+        record.setValue(ATZENTA_JOB_TITLE, QVariant(m_ui->jobTitleEdit->text()));
+        record.setValue(ATZENTA_COMPANY, QVariant(m_ui->companyEdit->text()));
+        record.setValue(ATZENTA_HOME_PHONE_1, QVariant(m_ui->homePhone1Edit->text()));
+        record.setValue(ATZENTA_HOME_PHONE_2, QVariant(m_ui->homePhone2Edit->text()));
+        record.setValue(ATZENTA_WORK_PHONE_1, QVariant(m_ui->workPhone1Edit->text()));
+        record.setValue(ATZENTA_WORK_PHONE_2, QVariant(m_ui->workPhone2Edit->text()));
+        record.setValue(ATZENTA_WORK_PHONE_2, QVariant(m_ui->workPhone2Edit->text()));
+        record.setValue(ATZENTA_MOBILE_PHONE_1, QVariant(m_ui->mobilePhone1Edit->text()));
+        record.setValue(ATZENTA_MOBILE_PHONE_2, QVariant(m_ui->mobilePhone2Edit->text()));
+        record.setValue(ATZENTA_OTHER_PHONE_1, QVariant(m_ui->otherPhone1Edit->text()));
+        record.setValue(ATZENTA_OTHER_PHONE_2, QVariant(m_ui->otherPhone2Edit->text()));
+        record.setValue(ATZENTA_HOME_FAX, QVariant(m_ui->homeFaxEdit->text()));
+        record.setValue(ATZENTA_WORK_FAX, QVariant(m_ui->workFaxEdit->text()));
+        record.setValue(ATZENTA_HOME_EMAIL, QVariant(m_ui->homeEmailEdit->text()));
+        record.setValue(ATZENTA_WORK_EMAIL, QVariant(m_ui->workEmailEdit->text()));
+        record.setValue(ATZENTA_HOME_URL, QVariant(m_ui->homeUrlEdit->text()));
+        record.setValue(ATZENTA_WORK_URL, QVariant(m_ui->workUrlEdit->text()));
+        record.setValue(ATZENTA_HOME_ADDRESS, QVariant(m_ui->homeAddressEdit->text()));
+        record.setValue(ATZENTA_HOME_CITY, QVariant(m_ui->homeCityEdit->text()));
+        record.setValue(ATZENTA_HOME_ZIP_CODE, QVariant(m_ui->homeZipCodeEdit->text()));
+        record.setValue(ATZENTA_HOME_COUNTRY, QVariant(m_ui->homeCountryEdit->text()));
+        record.setValue(ATZENTA_WORK_ADDRESS, QVariant(m_ui->workAddressEdit->text()));
+        record.setValue(ATZENTA_WORK_CITY, QVariant(m_ui->workCityEdit->text()));
+        record.setValue(ATZENTA_WORK_ZIP_CODE, QVariant(m_ui->workZipCodeEdit->text()));
+        record.setValue(ATZENTA_WORK_COUNTRY, QVariant(m_ui->workCountryEdit->text()));
+        record.setValue(ATZENTA_NOTES, QVariant(m_ui->notesEdit->toPlainText()));
+        m_model->insertRecord(-1,record);
+    } // then: if (m_isNew)
+    else
+        m_mapper->submit();
+    close();
+} // void PersonForm::on_addButton_clicked()
+
+void PersonForm::on_cancelButton_clicked()
+{
+    close();
+} // void PersonForm::on_cancelButton_clicked()

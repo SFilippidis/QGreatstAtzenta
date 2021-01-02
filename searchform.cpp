@@ -1,6 +1,6 @@
-// SearchForm::on_searchButton_clicked slot implementation.
+// Source code for the search form.
 
-// Copyright (C) 2011-2020 Stavros Filippidis
+// Copyright (C) 2011-2021 Stavros Filippidis
 // Contact: sfilippidis@gmail.com
 
 // This file is part of QGreatstAtzenta.
@@ -18,9 +18,30 @@
 // You should have received a copy of the GNU General Public License
 // along with QGreatstAtzenta.  If not, see <http://www.gnu.org/licenses/>.
 
-#include <QSqlTableModel>
 #include "searchform.h"
 #include "ui_searchform.h"
+
+SearchForm::SearchForm(QSqlTableModel *model, bool *cancel, QWidget *parent) :
+    QDialog(parent),
+    m_ui(new Ui::SearchForm),
+    m_model(model),
+    m_cancel(cancel),
+    m_searchString("")
+{
+    m_ui->setupUi(this);
+    setWindowTitle(QString::fromWCharArray(L"Search within all fields of all contacts"));
+} // SearchForm::SearchForm(QSqlTableModel *model, bool *cancel, QWidget *parent)
+
+SearchForm::~SearchForm()
+{
+    delete m_ui;
+} // SearchForm::~SearchForm()
+
+void SearchForm::on_cancelButton_clicked()
+{
+    *m_cancel = true;
+    close();
+} // void SearchForm::on_cancelButton_clicked()
 
 void SearchForm::on_searchButton_clicked()
 {

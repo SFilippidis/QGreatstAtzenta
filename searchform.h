@@ -1,6 +1,6 @@
 // Header file for the search form.
 
-// Copyright (C) 2011-2020 Stavros Filippidis
+// Copyright (C) 2011-2021 Stavros Filippidis
 // Contact: sfilippidis@gmail.com
 
 // This file is part of QGreatstAtzenta.
@@ -22,8 +22,7 @@
 #define SEARCHFORM_H
 
 #include <QDialog>
-
-class QSqlTableModel;
+#include <QSqlTableModel>
 
 namespace Ui {
 class SearchForm;

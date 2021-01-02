@@ -23,26 +23,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = QGreatstAtzenta
 TEMPLATE = app
 SOURCES += main.cpp\
-    mainwindow_infowindow.cpp \
-    mainwindow_usedb.cpp \
-    mainwindow_createorloaddb.cpp \
-    mainwindow_resetmodelviewlayout.cpp \
-    mainwindow_destructor.cpp \
-    mainwindow_constructor.cpp \
-    personform_constructor.cpp \
-    personform_destructor.cpp \
-    searchform_constructor.cpp \
-    searchform_destructor.cpp \
-    mainwindow_slot_about.cpp \
-    mainwindow_slot_on_addbutton_clicked.cpp \
-    mainwindow_slot_on_deletebutton_clicked.cpp \
-    mainwindow_slot_on_editorviewbutton_clicked.cpp \
-    mainwindow_slot_on_quitbutton_clicked.cpp \
-    mainwindow_slot_on_searchbutton_clicked.cpp \
-    personform_slot_on_addbutton_clicked.cpp \
-    personform_slot_on_cancelbutton_clicked.cpp \
-    searchform_slot_on_cancelbutton_clicked.cpp \
-    searchform_slot_on_searchbutton_clicked.cpp
+    mainwindow.cpp \
+    personform.cpp \
+    searchform.cpp
 HEADERS  += mainwindow.h \
     personform.h \
     searchform.h \
