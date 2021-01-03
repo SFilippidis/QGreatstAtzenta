@@ -30,18 +30,18 @@ SearchForm::SearchForm(QSqlTableModel *model, bool *cancel, QWidget *parent) :
 {
     m_ui->setupUi(this);
     setWindowTitle(QString::fromWCharArray(L"Search within all fields of all contacts"));
-} // SearchForm::SearchForm(QSqlTableModel *model, bool *cancel, QWidget *parent)
+} // end SearchForm::SearchForm
 
 SearchForm::~SearchForm()
 {
     delete m_ui;
-} // SearchForm::~SearchForm()
+} // end SearchForm::~SearchForm()
 
 void SearchForm::on_cancelButton_clicked()
 {
     *m_cancel = true;
     close();
-} // void SearchForm::on_cancelButton_clicked()
+} // end SearchForm::on_cancelButton_clicked
 
 void SearchForm::on_searchButton_clicked()
 {
@@ -102,4 +102,4 @@ void SearchForm::on_searchButton_clicked()
     m_searchString += QString::fromWCharArray(L"%'");
     m_model->setFilter(m_searchString);
     close();
-} // void SearchForm::on_searchButton_clicked()
+} // end SearchForm::on_searchButton_clicked

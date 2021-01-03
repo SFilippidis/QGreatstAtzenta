@@ -63,18 +63,18 @@ PersonForm::PersonForm(bool isNew, QSqlTableModel *model, QTableView *view, QWid
     m_mapper->addMapping(m_ui->workZipCodeEdit, ATZENTA_WORK_ZIP_CODE);
     m_mapper->addMapping(m_ui->workCountryEdit, ATZENTA_WORK_COUNTRY);
     m_mapper->addMapping(m_ui->notesEdit, ATZENTA_NOTES);
-    if (m_isNew)
+    if (m_isNew) {
         setWindowTitle(QString::fromWCharArray(L"Create a new contact"));
-    else {
+    } else {
         setWindowTitle(QString::fromWCharArray(L"View and edit an existing contact"));
         m_mapper->setCurrentIndex(view->currentIndex().row());
-    } // else: if (m_isNew)
-} // PersonForm::PersonForm(bool isNew, QSqlTableModel *model, QTableView *view, QWidget *parent)
+    } // end if
+} // end PersonForm::PersonForm
 
 PersonForm::~PersonForm()
 {
     delete m_ui;
-} // PersonForm::~PersonForm()
+} // end PersonForm::~PersonForm()
 
 void PersonForm::on_addButton_clicked()
 {
@@ -109,13 +109,13 @@ void PersonForm::on_addButton_clicked()
         record.setValue(ATZENTA_WORK_COUNTRY, QVariant(m_ui->workCountryEdit->text()));
         record.setValue(ATZENTA_NOTES, QVariant(m_ui->notesEdit->toPlainText()));
         m_model->insertRecord(-1,record);
-    } // then: if (m_isNew)
-    else
+    } else {
         m_mapper->submit();
+    } // end if
     close();
-} // void PersonForm::on_addButton_clicked()
+} // end PersonForm::on_addButton_clicked
 
 void PersonForm::on_cancelButton_clicked()
 {
     close();
-} // void PersonForm::on_cancelButton_clicked()
+} // end PersonForm::on_cancelButton_clicked

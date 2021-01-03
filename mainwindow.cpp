@@ -37,12 +37,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(m_ui->actionAbout_QGreatstAtzenta, SIGNAL(triggered()), this, SLOT(about()));
     connect(m_ui->actionAbout_Qt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
     MainWindow::useDb();
-} // MainWindow::MainWindow(QWidget *parent)
+} // end MainWindow::MainWindow
 
 MainWindow::~MainWindow()
 {
     delete m_ui;
-} // MainWindow::~MainWindow()
+} // end MainWindow::~MainWindow
 
 void MainWindow::createOrLoadDb(QString databaseFileName)
 {
@@ -57,7 +57,7 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
         QString databaseErrorTitle = QString::fromWCharArray(L"Error with the contacts' file");
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
-    } // if (!database.open())
+    } // end if
     if ((!databaseDidNotExistWhenAppStarted) && (!database.tables().contains("atzenta"))) {
         QString databaseErrorInfoText = QString::fromWCharArray(L"File <b>QGreatstAtzenta.database</b> in your home directory is not a "
                                                                 "contacts' file! Please rename the file QGreatstAtzenta.database in you"
@@ -66,7 +66,7 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
         QString databaseErrorTitle = QString::fromWCharArray(L"Wrong contacts' file");
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
-    } // if ((!databaseDidNotExistWhenAppStarted) && (!database.tables().contains("atzenta")))
+    } // end if
     if (databaseDidNotExistWhenAppStarted) {
         QSqlQuery query;
         query.exec(QString::fromWCharArray(L"CREATE TABLE atzenta (id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -104,8 +104,8 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
         helloText += databaseFileName;
         QString helloTitle = QString::fromWCharArray(L"About the file QGreatstAtzenta.database");
         infoWindow(helloText, helloTitle, QMessageBox::Information);
-    } // if (databaseDidNotExistWhenAppStarted)
-} // void MainWindow::createOrLoadDb(QString databaseFileName)
+    } // end if
+} // end MainWindow::createOrLoadDb
 
 void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon icon)
 {
@@ -122,7 +122,7 @@ void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon i
     msgBox.setDefaultButton(QMessageBox::Ok);
     msgBox.setIcon(icon);
     msgBox.exec();
-} // void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon icon)
+} // void MainWindow::infoWindow
 
 void MainWindow::about()
 {
@@ -141,14 +141,14 @@ void MainWindow::about()
                                                          "gnu.org/licenses/'>http://www.gnu.org/licenses/</A>.<BR>");
     QString licenceTitle = QString::fromWCharArray(L"About QGreatstAtzenta");
     infoWindow(licenceAndInfoText, licenceTitle, QMessageBox::NoIcon);
-} // void MainWindow::about()
+} // end MainWindow::about
 
 void MainWindow::on_addButton_clicked()
 {
     PersonForm form(PERSON_IS_NEW, m_model, m_ui->view, this);
     form.exec();
     resetModelViewLayout();
-} // void MainWindow::on_addButton_clicked()
+} // end MainWindow::on_addButton_clicked
 
 void MainWindow::on_deleteButton_clicked()
 {
@@ -158,7 +158,7 @@ void MainWindow::on_deleteButton_clicked()
                                                "were deleted.");
         infoWindow(text, title, QMessageBox::Critical);
         return;
-    } // if (!(m_ui->view->selectionModel()->isSelected(m_ui->view->currentIndex())))
+    } // end if
     QMessageBox msgBox;
 #if defined(Q_OS_WIN)
     msgBox.setWindowTitle(QString::fromWCharArray(L"Delete a contact"));
@@ -178,8 +178,8 @@ void MainWindow::on_deleteButton_clicked()
         m_model->select();
         m_ui->view->resizeColumnsToContents();
         m_header->setStretchLastSection(true);
-    } // if (ret == QMessageBox::Yes)
-} // void MainWindow::on_deleteButton_clicked()
+    } // end if
+} // end MainWindow::on_deleteButton_clicked
 
 void MainWindow::on_editOrViewButton_clicked()
 {
@@ -188,17 +188,17 @@ void MainWindow::on_editOrViewButton_clicked()
         QString text = QString::fromWCharArray(L"You did not choose a contact to view and/or edit.");
         infoWindow(text, title, QMessageBox::Critical);
         return;
-    } // if (!( m_ui->view->selectionModel()->isSelected(m_ui->view->currentIndex())))
+    } // end if
     PersonForm form(PERSON_IS_OLD, m_model, m_ui->view, this);
     form.exec();
     m_ui->view->resizeColumnsToContents();
     m_header->setStretchLastSection(true);
-} // void MainWindow::on_editOrViewButton_clicked()
+} // end MainWindow::on_editOrViewButton_clicked
 
 void MainWindow::on_quitButton_clicked()
 {
     close();
-} // void MainWindow::on_quitButton_clicked()
+} // end MainWindow::on_quitButton_clicked
 
 void MainWindow::on_searchButton_clicked()
 {
@@ -207,16 +207,16 @@ void MainWindow::on_searchButton_clicked()
         setWindowTitle(QString::fromWCharArray(L"QGreatstAtzenta"));
         m_ui->searchButton->setText(QString::fromWCharArray(L"Search..."));
         return;
-    } // if (m_ui->searchButton->text()==QString::fromWCharArray(L"Show all"))
+    } // end if
     bool *isCancelChosen = new(bool);
     *isCancelChosen = false;
     SearchForm form(m_model, isCancelChosen, this);
     form.exec();
-    if(!*isCancelChosen) {
+    if (!*isCancelChosen) {
         setWindowTitle(QString::fromWCharArray(L"QGreatstAtzenta - showing selected contacts"));
         m_ui->searchButton->setText(QString::fromWCharArray(L"Show all"));
-    } // if(!*isCancelChosen)
-} // void MainWindow::on_searchButton_clicked()
+    } // end if
+} // end MainWindow::on_searchButton_clicked
 
 void MainWindow::useDb()
 {
@@ -224,7 +224,7 @@ void MainWindow::useDb()
     databaseFileName = QDir::homePath() + QString::fromWCharArray(L"/QGreatstAtzenta.database");
     createOrLoadDb(databaseFileName);
     resetModelViewLayout();
-} // void MainWindow::useDb()
+} // end MainWindow::useDb
 
 void MainWindow::resetModelViewLayout()
 {
@@ -269,4 +269,4 @@ void MainWindow::resetModelViewLayout()
     m_ui->view->resizeColumnsToContents();
     m_header->setStretchLastSection(true);
     m_ui->searchButton->setText(QString::fromWCharArray(L"Search..."));
-} // void MainWindow::resetModelViewLayout()
+} // end MainWindow::resetModelViewLayout
