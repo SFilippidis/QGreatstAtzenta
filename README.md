@@ -9,4 +9,4 @@ You should have received a copy of the GNU General Public License along with QGr
 
 * For general instructions on how to compile, please view file: INSTRUCTIONS.txt
 
-* For the application's icon (files QGreatstAtzenta.ico and QGreatstAtzenta.icns) an icon from <https://openclipart.org/> was used, available at <https://openclipart.org/detail/97453/contacts> (last accessed: 25th January 2020).
+* For the application's icon (files QGreatstAtzenta.ico and QGreatstAtzenta.icns) an icon from <https://openclipart.org/> was used, available at <https://openclipart.org/detail/97453/contacts> (last accessed: 5th January 2021).
