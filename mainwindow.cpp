@@ -50,19 +50,13 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
     QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
     database.setDatabaseName(databaseFileName);
     if (!database.open()) {
-        QString databaseErrorInfoText = QString::fromWCharArray(L"There was an error with the file <b>QGreatstAtzenta.database</b> in y"
-                                                                "our home directory! Please rename the file QGreatstAtzenta.database in"
-                                                                " your home directory (or delete it if you are sure you do not need it)"
-                                                                " and run the application again!");
+        QString databaseErrorInfoText = QString::fromWCharArray(L"There was an error with the file <b>QGreatstAtzenta.database</b> in your home directory! Please rename the file QGreatstAtzenta.database in your home directory (or delete it if you are sure you do not need it) and run the application again!");
         QString databaseErrorTitle = QString::fromWCharArray(L"Error with the contacts' file");
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
     } // end if
     if ((!databaseDidNotExistWhenAppStarted) && (!database.tables().contains("atzenta"))) {
-        QString databaseErrorInfoText = QString::fromWCharArray(L"File <b>QGreatstAtzenta.database</b> in your home directory is not a "
-                                                                "contacts' file! Please rename the file QGreatstAtzenta.database in you"
-                                                                "r home directory (or delete it if you are sure you do not need it) and"
-                                                                " run the application again!");
+        QString databaseErrorInfoText = QString::fromWCharArray(L"File <b>QGreatstAtzenta.database</b> in your home directory is not a contacts' file! Please rename the file QGreatstAtzenta.database in your home directory (or delete it if you are sure you do not need it) and run the application again!");
         QString databaseErrorTitle = QString::fromWCharArray(L"Wrong contacts' file");
         infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
         exit(0);
@@ -97,10 +91,7 @@ void MainWindow::createOrLoadDb(QString databaseFileName)
                                                                    "workzipcode VARCHAR(20), "
                                                                    "workcountry VARCHAR(40), "
                                                                    "notes VARCHAR(256) )"));
-        QString helloText = QString::fromWCharArray(L"A file named <b>QGreatstAtzenta.database</b> has been created in your home direct"
-                                                    "ory. The contacts will be saved there. <BR><BR>If you would like to delete your co"
-                                                    "ntacts, you should manualy delete this file yourself.<BR><BR>The location of the f"
-                                                    "ile is:<BR><BR>");
+        QString helloText = QString::fromWCharArray(L"A file named <b>QGreatstAtzenta.database</b> has been created in your home directory. The contacts will be saved there. <BR><BR>If you would like to delete your contacts, you should manualy delete this file yourself.<BR><BR>The location of the file is:<BR><BR>");
         helloText += databaseFileName;
         QString helloTitle = QString::fromWCharArray(L"About the file QGreatstAtzenta.database");
         infoWindow(helloText, helloTitle, QMessageBox::Information);
@@ -126,19 +117,7 @@ void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon i
 
 void MainWindow::about()
 {
-    QString licenceAndInfoText = QString::fromWCharArray(L"QGreatstAtzenta. Version 1.3.5+. A program for organizing your contacts.<BR>"
-                                                         "<BR>Copyright (C) 2011-2021 Stavros Filippidis<BR>email: <A HREF='mailto:sfil"
-                                                         "ippidis@gmail.com'>sfilippidis@gmail.com</A><BR>www: <A HREF='https://blogs.s"
-                                                         "ch.gr/sfil/'>https://sfil.mysch.gr/</A><BR><BR>QGreatstAtzenta is free so"
-                                                         "ftware: you can redistribute it and/or modify<BR>it under the terms of the GN"
-                                                         "U General Public License as published by<BR>the Free Software Foundation, eit"
-                                                         "her version 3 of the License, or<BR>(at your option) any later version.<BR><B"
-                                                         "R>QGreatstAtzenta is distributed in the hope that it will be useful,<BR>but W"
-                                                         "ITHOUT ANY WARRANTY; without even the implied warranty of<BR>MERCHANTABILITY "
-                                                         "or FITNESS FOR A PARTICULAR PURPOSE.  See the<BR>GNU General Public License f"
-                                                         "or more details.<BR><BR>You should have received a copy of the GNU General Pu"
-                                                         "blic License<BR>along with QGreatstAtzenta.  If not, see <A HREF='http://www."
-                                                         "gnu.org/licenses/'>http://www.gnu.org/licenses/</A>.<BR>");
+    QString licenceAndInfoText = QString::fromWCharArray(L"QGreatstAtzenta. Version 1.3.5+. A program for organizing your contacts.<BR><BR>Copyright (C) 2011-2021 Stavros Filippidis<BR>email: <A HREF='mailto:sfilippidis@gmail.com'>sfilippidis@gmail.com</A><BR>www: <A HREF='https://sfil.mysch.gr/'>https://sfil.mysch.gr/</A><BR><BR>QGreatstAtzenta is free software: you can redistribute it and/or modify<BR>it under the terms of the GNU General Public License as published by<BR>the Free Software Foundation, either version 3 of the License, or<BR>(at your option) any later version.<BR><BR>QGreatstAtzenta is distributed in the hope that it will be useful,<BR>but WITHOUT ANY WARRANTY; without even the implied warranty of<BR>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<BR>GNU General Public License for more details.<BR><BR>You should have received a copy of the GNU General Public License<BR>along with QGreatstAtzenta.  If not, see <A HREF='http://www.gnu.org/licenses/'>http://www.gnu.org/licenses/</A>.<BR>");
     QString licenceTitle = QString::fromWCharArray(L"About QGreatstAtzenta");
     infoWindow(licenceAndInfoText, licenceTitle, QMessageBox::NoIcon);
 } // end MainWindow::about
@@ -154,8 +133,7 @@ void MainWindow::on_deleteButton_clicked()
 {
     if (!(m_ui->view->selectionModel()->isSelected(m_ui->view->currentIndex()))) {
         QString title = QString::fromWCharArray(L"No chosen contacts");
-        QString text = QString::fromWCharArray(L"You did not choose a contact to delete.\n\nNo contacts "
-                                               "were deleted.");
+        QString text = QString::fromWCharArray(L"You did not choose a contact to delete.\n\nNo contacts were deleted.");
         infoWindow(text, title, QMessageBox::Critical);
         return;
     } // end if
