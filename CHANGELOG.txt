@@ -1,3 +1,7 @@
+2021-02-04  Stavros Filippidis  <stavros@filippidis.name>
+
+	* New email address and new website.
+
 2021-01-16  Stavros Filippidis  <sfilippidis@gmail.com>
 
 	* Code refactoring.
