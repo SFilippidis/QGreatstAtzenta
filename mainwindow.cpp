@@ -1,6 +1,6 @@
 // Source code for the main window of the application.
 
-// Copyright (C) 2011-2021 Stavros Filippidis
+// Copyright (C) 2011-2024 Stavros Filippidis
 // Contact: stavros@filippidis.name
 
 // This file is part of QGreatstAtzenta.
@@ -109,7 +109,15 @@ void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon i
     msgBox.setInformativeText(infoText);
 #endif
     msgBox.setStandardButtons(QMessageBox::Ok);
+    // ================================
+    // Warning:
+    // --------------------------------
+    // void QMessageBox::setButtonText(int button, const QString &text)
+    // is deprecated since Qt 6.2. In the future,
+    // QPushButton *QMessageBox::addButton(const QString &text, QMessageBox::ButtonRole role)
+    // should be used instead.
     msgBox.setButtonText(QMessageBox::Ok, QString::fromWCharArray(L"Ok"));
+    // ================================
     msgBox.setDefaultButton(QMessageBox::Ok);
     msgBox.setIcon(icon);
     msgBox.exec();
@@ -146,8 +154,16 @@ void MainWindow::on_deleteButton_clicked()
     msgBox.setInformativeText(QString::fromWCharArray(L"You are deleting the chosen contact. Are you sure?"));
 #endif
     msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    // ================================
+    // Warning:
+    // --------------------------------
+    // void QMessageBox::setButtonText(int button, const QString &text)
+    // is deprecated since Qt 6.2. In the future,
+    // QPushButton *QMessageBox::addButton(const QString &text, QMessageBox::ButtonRole role)
+    // should be used instead.
     msgBox.setButtonText(QMessageBox::Yes, QString::fromWCharArray(L"Yes"));
     msgBox.setButtonText(QMessageBox::No, QString::fromWCharArray(L"No"));
+    // ================================
     msgBox.setDefaultButton(QMessageBox::No);
     msgBox.setIcon(QMessageBox::Warning);
     int ret = msgBox.exec();
