@@ -1,6 +1,7 @@
 2024-11-01  Stavros Filippidis  <sfilippidis@gmail.com>
 
 	* New comments added.
+	* When data have been saved, the last entry is used for default values in the form.
 
 2021-02-04  Stavros Filippidis  <stavros@filippidis.name>
 
