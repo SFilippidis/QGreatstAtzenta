@@ -1,6 +1,6 @@
 // Header file for the main window.
 
-// Copyright (C) 2011-2021 Stavros Filippidis
+// Copyright (C) 2011-2024 Stavros Filippidis
 // Contact: stavros@filippidis.name
 
 // This file is part of QGreatstAtzenta.
