@@ -1,104 +1,27 @@
-// Source code for the main window of the application.
+// MainWindow's implementation.
 
 // Copyright (C) 2011-2024 Stavros Filippidis
 // Contact: stavros@filippidis.name
 
-// This file is part of QGreatstAtzenta.
+// This file is part of QGreatstWeightCalculator.
 
-// QGreatstAtzenta is free software: you can redistribute it and/or modify
+// QGreatstWeightCalculator is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 
-// QGreatstAtzenta is distributed in the hope that it will be useful,
+// QGreatstWeightCalculator is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 
 // You should have received a copy of the GNU General Public License
-// along with QGreatstAtzenta.  If not, see <http://www.gnu.org/licenses/>.
+// along with QGreatstWeightCalculator.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "atzenta_enum.h"
-#include "personform.h"
-#include "person_enum.h"
-#include "searchform.h"
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    m_ui(new Ui::MainWindow)
-{
-    m_ui->setupUi(this);
-    setUnifiedTitleAndToolBarOnMac(true);
-    resetModelViewLayout();
-    connect(m_ui->view, SIGNAL(doubleClicked(QModelIndex)), this, SLOT(on_editOrViewButton_clicked()));
-    setWindowTitle(QString::fromWCharArray(L"QGreatstAtzenta"));
-    connect(m_ui->actionAbout_QGreatstAtzenta, SIGNAL(triggered()), this, SLOT(about()));
-    connect(m_ui->actionAbout_Qt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
-    MainWindow::useDb();
-} // end MainWindow::MainWindow
-
-MainWindow::~MainWindow()
-{
-    delete m_ui;
-} // end MainWindow::~MainWindow
-
-void MainWindow::createOrLoadDb(QString databaseFileName)
-{
-    bool databaseDidNotExistWhenAppStarted = !QFile::exists(databaseFileName);
-    QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE");
-    database.setDatabaseName(databaseFileName);
-    if (!database.open()) {
-        QString databaseErrorInfoText = QString::fromWCharArray(L"There was an error with the file <b>QGreatstAtzenta.database</b> in your home directory! Please rename the file QGreatstAtzenta.database in your home directory (or delete it if you are sure you do not need it) and run the application again!");
-        QString databaseErrorTitle = QString::fromWCharArray(L"Error with the contacts' file");
-        infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
-        exit(0);
-    } // end if
-    if ((!databaseDidNotExistWhenAppStarted) && (!database.tables().contains("atzenta"))) {
-        QString databaseErrorInfoText = QString::fromWCharArray(L"File <b>QGreatstAtzenta.database</b> in your home directory is not a contacts' file! Please rename the file QGreatstAtzenta.database in your home directory (or delete it if you are sure you do not need it) and run the application again!");
-        QString databaseErrorTitle = QString::fromWCharArray(L"Wrong contacts' file");
-        infoWindow(databaseErrorInfoText, databaseErrorTitle, QMessageBox::Critical);
-        exit(0);
-    } // end if
-    if (databaseDidNotExistWhenAppStarted) {
-        QSqlQuery query;
-        query.exec(QString::fromWCharArray(L"CREATE TABLE atzenta (id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                                                                   "name VARCHAR(30), "
-                                                                   "sirname VARCHAR(40), "
-                                                                   "jobtitle VARCHAR(60), "
-                                                                   "company VARCHAR(80), "
-                                                                   "homephone1 VARCHAR(20), "
-                                                                   "homephone2 VARCHAR(20), "
-                                                                   "workphone1 VARCHAR(20), "
-                                                                   "workphone2 VARCHAR(20), "
-                                                                   "mobilephone1 VARCHAR(20), "
-                                                                   "mobilephone2 VARCHAR(20), "
-                                                                   "otherphone1 VARCHAR(20), "
-                                                                   "otherphone2 VARCHAR(20), "
-                                                                   "homefax VARCHAR(20), "
-                                                                   "workfax VARCHAR(20), "
-                                                                   "homeemail VARCHAR(60), "
-                                                                   "workemail VARCHAR(60), "
-                                                                   "homeurl VARCHAR(150), "
-                                                                   "workurl VARCHAR(150), "
-                                                                   "homeaddress VARCHAR(60), "
-                                                                   "homecity VARCHAR(30), "
-                                                                   "homezipcode VARCHAR(20), "
-                                                                   "homecountry VARCHAR(40), "
-                                                                   "workaddress VARCHAR(60), "
-                                                                   "workcity VARCHAR(30), "
-                                                                   "workzipcode VARCHAR(20), "
-                                                                   "workcountry VARCHAR(40), "
-                                                                   "notes VARCHAR(256) )"));
-        QString helloText = QString::fromWCharArray(L"A file named <b>QGreatstAtzenta.database</b> has been created in your home directory. The contacts will be saved there. <BR><BR>If you would like to delete your contacts, you should manualy delete this file yourself.<BR><BR>The location of the file is:<BR><BR>");
-        helloText += databaseFileName;
-        QString helloTitle = QString::fromWCharArray(L"About the file QGreatstAtzenta.database");
-        infoWindow(helloText, helloTitle, QMessageBox::Information);
-    } // end if
-} // end MainWindow::createOrLoadDb
-
-void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon icon)
+void displayInformationMessage(QString infoText, QString title, QMessageBox::Icon icon)
 {
     QMessageBox msgBox;
 #if defined(Q_OS_WIN)
@@ -109,7 +32,7 @@ void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon i
     msgBox.setInformativeText(infoText);
 #endif
     msgBox.setStandardButtons(QMessageBox::Ok);
-    // ================================
+     // ================================
     // Warning:
     // --------------------------------
     // void QMessageBox::setButtonText(int button, const QString &text)
@@ -121,146 +44,193 @@ void MainWindow::infoWindow(QString infoText, QString title, QMessageBox::Icon i
     msgBox.setDefaultButton(QMessageBox::Ok);
     msgBox.setIcon(icon);
     msgBox.exec();
-} // end MainWindow::infoWindow
+} // end displayInformationMessage
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    m_ui(new Ui::MainWindow),
+    m_doesDataFileExist(false)
+{
+    m_ui->setupUi(this);
+    m_ui->pushButtonSave->setEnabled(false);
+    MainWindow::populate_history();
+    setUnifiedTitleAndToolBarOnMac(true);
+    setWindowTitle(QString::fromWCharArray(L"QGreatstWeightCalculator"));
+    connect(m_ui->actionAbout_QGreatstWeightCalculator, SIGNAL(triggered()), this, SLOT(about()));
+    connect(m_ui->actionAbout_Qt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+} // end MainWindow::MainWindow
+
+void MainWindow::populate_history()
+{
+    QFile dataFile(QDir::homePath()+"/QGreatstWeightCalculator.data");
+    if (!dataFile.open(QIODevice::ReadOnly)) {
+        MainWindow::on_pushButtonResetData_clicked();
+        return;
+    } // end if
+    m_doesDataFileExist = true;
+    QDataStream in(&dataFile);
+    QDateTime recordDateTimeValue;
+    QString nameValue;
+    QString genderValue;
+    double heightValue = 0.0;
+    double weightValue = 0.0;
+    double BMIValue = 0.0;
+    double ageValue = 0.0;
+    int activityValue = 0;
+    QString idealWeightValue;
+    QString dataFromFileInHTML = QString::fromWCharArray(L"<center><table border='1'><tr><td><center><b>Date and time</b></center></td><td><center><b>Name</b></center></td><td><center><b>Gender</b></center></td><td><center><b>Age (years)</b><td><center><b>Height (m)</b></center></td><td><center><b>Weight (kg)</b></center></td><td><center><b>Body mass index</b></center></td><td><center><b>Ideal weight (kg)</b></center></td></tr>");
+    while (!in.atEnd()) {        
+        in >> recordDateTimeValue >> nameValue >> genderValue >> ageValue >> heightValue >> weightValue >> BMIValue >> activityValue >> idealWeightValue;
+        dataFromFileInHTML += QString::fromWCharArray(L"<tr><td><center>") + recordDateTimeValue.toString() + QString::fromWCharArray(L"</center></td><td><center>") + nameValue + QString::fromWCharArray(L"</center></td><td><center>") + genderValue + QString::fromWCharArray(L"</center></td><td><center>") + QString::number(ageValue,'f',2) + QString::fromWCharArray(L"</center></td><td><center>") + QString::number(heightValue,'f',2) + QString::fromWCharArray(L"</center></td><td><center>") + QString::number(weightValue,'f',2) + QString::fromWCharArray(L"</center></td><td><center>") + QString::number(BMIValue,'f',2) + QString::fromWCharArray(L"</center></td><td><center>") + idealWeightValue + QString::fromWCharArray(L"</center></td></tr>");
+    } // end while
+    m_name = nameValue;
+    if (genderValue == "male") {
+        m_gender_index = 0;
+    } else {
+        m_gender_index = 1;
+    }
+    m_height = heightValue * 100.0;
+    m_weight = weightValue;
+    m_age = ageValue;
+    m_actividy_index = activityValue;
+    MainWindow::on_pushButtonResetData_clicked();
+    dataFromFileInHTML+=QString::fromWCharArray(L"</table></center>");
+    MainWindow::m_ui->textBrowser_3->setText(dataFromFileInHTML);
+    dataFile.close();
+} // end MainWindow::populate_history
+
+void MainWindow::create_history()
+{
+    QString name = m_ui->name->text();
+    QString genderText = QString::fromWCharArray(L"male");
+    int gender = m_ui->comboBoxGender->currentIndex();
+    if (gender == 1) {
+        genderText = QString::fromWCharArray(L"female");
+    } // end if
+    int activity = m_ui->comboBoxActivity->currentIndex();
+    double height = m_ui->doubleSpinBoxHeight->value()/100.0;
+    double age = m_ui->doubleSpinBoxAge->value();
+    double idealWeightLow = 18.50 * height * height;
+    double idealWeightHigh = 24.99999 * height * height;
+    QString filename = QDir::homePath()+QString::fromWCharArray(L"/QGreatstWeightCalculator.data");
+    QFile dataFile(filename);
+    if(!dataFile.open(QIODevice::Append)) {
+        QString datafileErrorInfoText = QString::fromWCharArray(L"File could not be opened for appending new data. Your data was not saved!");
+        QString datafileErrorTitle = QString::fromWCharArray(L"Error with the results' file");
+        displayInformationMessage(datafileErrorInfoText, datafileErrorTitle, QMessageBox::Critical);
+        return;
+    } // end if
+    QDataStream out(&dataFile);
+    QString idealWeight = QString::fromWCharArray(L"from ");
+    idealWeight += QString::number(idealWeightLow,'f',1);
+    idealWeight += QString::fromWCharArray(L" to ");
+    idealWeight += QString::number(idealWeightHigh,'f',1);
+    double weight = m_ui->doubleSpinBoxWeight->value();
+    double bmi = weight/(height*height);
+    out << QDateTime::currentDateTime() << name << genderText << age << height << weight << bmi << activity << idealWeight;
+    dataFile.flush();
+    if (!m_doesDataFileExist) {
+        QString writingDataInfoText = QString::fromWCharArray(L"File QGreatstWeightCalculator.data was created and your data is saved.<br><br>File QGreatstWeightCalculator.data exists in your home directory. To delete all saved data, delete the file QGreatstWeightCalculator.data.<BR><BR>This window will not appear again (in the following savings).<br><br>The location of the file is:<BR><BR>");
+        writingDataInfoText += filename;
+        QString writingDataTitle = QString::fromWCharArray(L"Data file created");
+        displayInformationMessage(writingDataInfoText, writingDataTitle, QMessageBox::Information);
+    } // end if
+} // end MainWindow::create_history
+
+MainWindow::~MainWindow()
+{
+    delete m_ui;
+} // end MainWindow::~MainWindow
 
 void MainWindow::about()
 {
-    QString licenceAndInfoText = QString::fromWCharArray(L"QGreatstAtzenta. Version 1.3.5+. A program for organizing your contacts.<BR><BR>Copyright (C) 2011-2024 Stavros Filippidis<BR>email: <A HREF='mailto:stavros@filippidis.name'>stavros@filippidis.name</A><BR>www: <A HREF='https://www.filippidis.name/'>https://www.filippidis.name/</A><BR><BR>QGreatstAtzenta is free software: you can redistribute it and/or modify<BR>it under the terms of the GNU General Public License as published by<BR>the Free Software Foundation, either version 3 of the License, or<BR>(at your option) any later version.<BR><BR>QGreatstAtzenta is distributed in the hope that it will be useful,<BR>but WITHOUT ANY WARRANTY; without even the implied warranty of<BR>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<BR>GNU General Public License for more details.<BR><BR>You should have received a copy of the GNU General Public License<BR>along with QGreatstAtzenta.  If not, see <A HREF='http://www.gnu.org/licenses/'>http://www.gnu.org/licenses/</A>.<BR>");
-    QString licenceTitle = QString::fromWCharArray(L"About QGreatstAtzenta");
-    infoWindow(licenceAndInfoText, licenceTitle, QMessageBox::NoIcon);
+    QString licenceAndInfoText = QString::fromWCharArray(L"QGreatstWeightCalculator. Version 1.0.7+. A program for weight related calculations.<BR><BR>Copyright (C) 2011-2024 Stavros Filippidis<BR>email: <A HREF='mailto:stavros@filippidis.name'>stavros@filippidis.name</A><BR>www: <A HREF='https://www.filippidis.name/'>https://www.filippidis.name/</A><BR><BR>QGreatstWeightCalculator is free software: you can redistribute it and/or modify<BR>it under the terms of the GNU General Public License as published by<BR>the Free Software Foundation, either version 3 of the License, or<BR>(at your option) any later version.<BR><BR>QGreatstWeightCalculator is distributed in the hope that it will be useful,<BR>but WITHOUT ANY WARRANTY; without even the implied warranty of<BR>MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the<BR>GNU General Public License for more details.<BR><BR>You should have received a copy of the GNU General Public License<BR>along with QGreatstWeightCalculator.  If not, see <A HREF='http://www.gnu.org/licenses/'>http://www.gnu.org/licenses/</A>.<BR>");
+    QString licenceTitle = QString::fromWCharArray(L"About QGreatstWeightCalculator");
+    displayInformationMessage(licenceAndInfoText, licenceTitle, QMessageBox::NoIcon);
 } // end MainWindow::about
 
-void MainWindow::on_addButton_clicked()
+void MainWindow::on_pushButtonResetData_clicked()
 {
-    PersonForm form(PERSON_IS_NEW, m_model, m_ui->view, this);
-    form.exec();
-    resetModelViewLayout();
-} // end MainWindow::on_addButton_clicked
+    m_ui->name->setText(m_name);
+    m_ui->doubleSpinBoxWeight->setValue(m_weight);
+    m_ui->doubleSpinBoxHeight->setValue(m_height);
+    m_ui->doubleSpinBoxAge->setValue(m_age);
+    m_ui->results->setText(QString::fromWCharArray(L"Results will appear here!"));
+    m_ui->comboBoxGender->setCurrentIndex(m_gender_index);
+    m_ui->comboBoxActivity->setCurrentIndex(m_actividy_index);
+    m_ui->pushButtonSave->setEnabled(false);
+} // end MainWindow::on_pushButtonResetData_clicked
 
-void MainWindow::on_deleteButton_clicked()
+void MainWindow::on_pushButtonCalculate_clicked()
 {
-    if (!(m_ui->view->selectionModel()->isSelected(m_ui->view->currentIndex()))) {
-        QString title = QString::fromWCharArray(L"No chosen contacts");
-        QString text = QString::fromWCharArray(L"You did not choose a contact to delete.\n\nNo contacts were deleted.");
-        infoWindow(text, title, QMessageBox::Critical);
-        return;
+    QString results = QString::fromWCharArray(L"Here are your results (approximately):<br>");
+    results += QString::fromWCharArray(L"<ul><li>Your body mass index is <b>");
+    double weight = m_ui->doubleSpinBoxWeight->value();
+    double height = m_ui->doubleSpinBoxHeight->value()/100.0;
+    double bmi = weight/(height*height);
+    results += QString::number(bmi,'d',2);
+    results += QString::fromWCharArray(L"</b>, so your standard weight status category is <b>\"");
+    if (bmi < 18.5) {
+        results += QString::fromWCharArray(L"underweight");
+    } else if ((bmi >= 18.5) && (bmi < 25.0)) {
+        results += QString::fromWCharArray(L"normal");
+    } else if ((bmi >= 25.0) && (bmi < 30.0)) {
+        results += QString::fromWCharArray(L"overweight");
+    } else if (bmi >= 30.0) {
+        results += QString::fromWCharArray(L"obese");
     } // end if
-    QMessageBox msgBox;
-#if defined(Q_OS_WIN)
-    msgBox.setWindowTitle(QString::fromWCharArray(L"Delete a contact"));
-    msgBox.setText(QString::fromWCharArray(L"You are deleting the chosen contact. Are you sure?"));
-#else
-    msgBox.setText(QString::fromWCharArray(L"Delete a contact."));
-    msgBox.setInformativeText(QString::fromWCharArray(L"You are deleting the chosen contact. Are you sure?"));
-#endif
-    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-    // ================================
-    // Warning:
-    // --------------------------------
-    // void QMessageBox::setButtonText(int button, const QString &text)
-    // is deprecated since Qt 6.2. In the future,
-    // QPushButton *QMessageBox::addButton(const QString &text, QMessageBox::ButtonRole role)
-    // should be used instead.
-    msgBox.setButtonText(QMessageBox::Yes, QString::fromWCharArray(L"Yes"));
-    msgBox.setButtonText(QMessageBox::No, QString::fromWCharArray(L"No"));
-    // ================================
-    msgBox.setDefaultButton(QMessageBox::No);
-    msgBox.setIcon(QMessageBox::Warning);
-    int ret = msgBox.exec();
-    if (ret == QMessageBox::Yes) {
-        m_model->removeRow(m_ui->view->currentIndex().row());
-        m_model->select();
-        m_ui->view->resizeColumnsToContents();
-        m_header->setStretchLastSection(true);
+    results += QString::fromWCharArray(L"\"</b>.</li><br>");
+    results += QString::fromWCharArray(L"<li>Based on your height, your normal weight range is <b>from ");
+    double idealWeightLow = 18.50 * height * height;
+    results += QString::number(idealWeightLow,'f',1);
+    results += QString::fromWCharArray(L" to ");
+    double idealWeightHigh = 24.99999 * height * height;
+    results += QString::number(idealWeightHigh,'f',1);
+    results += QString::fromWCharArray(L" kg</b>.</li><br>");
+    double kcal = 0.0;
+    double age = m_ui->doubleSpinBoxAge->value();
+    int gender = m_ui->comboBoxGender->currentIndex();
+    if (gender == 0) {
+        kcal = 66.0 + weight * 13.70 + height * 5.00 * 100.0 - age * 6.80; // 0 == male
+    } else {
+        kcal = 655.0 + weight * 9.60 + height * 1.80 * 100.0 - age * 4.70; // 1 == female
     } // end if
-} // end MainWindow::on_deleteButton_clicked
+    int activity = m_ui->comboBoxActivity->currentIndex();
+    switch (activity) {
+        case 0:
+            break;
+        case 1:
+            kcal *= 1.20;
+            break;
+        case 2:
+            kcal *= 1.375;
+            break;
+        case 3:
+            kcal *= 1.55;
+            break;
+        case 4:
+            kcal *= 1.725;
+            break;
+        case 5:
+            kcal *= 1.90;
+            break;
+    } // end switch
+    results += QString::fromWCharArray(L"<li> Based on the data you entered, to maintain your current weight you need <b>");
+    results += QString::number((kcal),'f',0);
+    results += QString::fromWCharArray(L" Calories (kCal)</b> per day.</li>");
+    m_ui->results->setText(results);
+    m_ui->pushButtonSave->setEnabled(true);
+} // end MainWindow::on_pushButtonCalculate_clicked
 
-void MainWindow::on_editOrViewButton_clicked()
+void MainWindow::on_pushButtonSave_clicked()
 {
-    if (!( m_ui->view->selectionModel()->isSelected(m_ui->view->currentIndex()))) {
-        QString title = QString::fromWCharArray(L"No chosen contacts");
-        QString text = QString::fromWCharArray(L"You did not choose a contact to view and/or edit.");
-        infoWindow(text, title, QMessageBox::Critical);
-        return;
-    } // end if
-    PersonForm form(PERSON_IS_OLD, m_model, m_ui->view, this);
-    form.exec();
-    m_ui->view->resizeColumnsToContents();
-    m_header->setStretchLastSection(true);
-} // end MainWindow::on_editOrViewButton_clicked
+    MainWindow::create_history();
+    m_ui->pushButtonSave->setEnabled(false);
+    MainWindow::populate_history();
+    MainWindow::on_pushButtonResetData_clicked();
+} // end MainWindow::on_pushButtonSave_clicked
 
-void MainWindow::on_quitButton_clicked()
+void MainWindow::on_pushButtonExit_clicked()
 {
-    close();
-} // end MainWindow::on_quitButton_clicked
-
-void MainWindow::on_searchButton_clicked()
-{
-    if (m_ui->searchButton->text()==QString::fromWCharArray(L"Show all")) {
-        resetModelViewLayout();
-        setWindowTitle(QString::fromWCharArray(L"QGreatstAtzenta"));
-        m_ui->searchButton->setText(QString::fromWCharArray(L"Search..."));
-        return;
-    } // end if
-    bool *isCancelChosen = new(bool);
-    *isCancelChosen = false;
-    SearchForm form(m_model, isCancelChosen, this);
-    form.exec();
-    if (!*isCancelChosen) {
-        setWindowTitle(QString::fromWCharArray(L"QGreatstAtzenta - showing selected contacts"));
-        m_ui->searchButton->setText(QString::fromWCharArray(L"Show all"));
-    } // end if
-} // end MainWindow::on_searchButton_clicked
-
-void MainWindow::useDb()
-{
-    QString databaseFileName;
-    databaseFileName = QDir::homePath() + QString::fromWCharArray(L"/QGreatstAtzenta.database");
-    createOrLoadDb(databaseFileName);
-    resetModelViewLayout();
-} // end MainWindow::useDb
-
-void MainWindow::resetModelViewLayout()
-{
-    m_model = new QSqlTableModel(this);
-    m_model->setTable(QString::fromWCharArray(L"atzenta"));
-    m_model->setHeaderData(ATZENTA_NAME, Qt::Horizontal, QString::fromWCharArray(L"First name"));
-    m_model->setHeaderData(ATZENTA_SIRNAME, Qt::Horizontal, QString::fromWCharArray(L"Last name"));
-    m_model->setHeaderData(ATZENTA_COMPANY, Qt::Horizontal, QString::fromWCharArray(L"Company"));
-    m_model->setHeaderData(ATZENTA_HOME_PHONE_1, Qt::Horizontal, QString::fromWCharArray(L"Home phone"));
-    m_model->setHeaderData(ATZENTA_WORK_PHONE_1, Qt::Horizontal, QString::fromWCharArray(L"Work phone"));
-    m_model->setHeaderData(ATZENTA_MOBILE_PHONE_1, Qt::Horizontal, QString::fromWCharArray(L"Mobile phone"));
-    m_model->select();
-    m_ui->view->setModel(m_model);
-    m_ui->view->setSelectionMode(QAbstractItemView::SingleSelection);
-    m_ui->view->setSelectionBehavior(QAbstractItemView::SelectRows);
-    m_ui->view->setColumnHidden(ATZENTA_ID, true);
-    m_ui->view->setColumnHidden(ATZENTA_JOB_TITLE, true);
-    m_ui->view->setColumnHidden(ATZENTA_HOME_PHONE_2, true);
-    m_ui->view->setColumnHidden(ATZENTA_WORK_PHONE_2, true);
-    m_ui->view->setColumnHidden(ATZENTA_MOBILE_PHONE_2, true);
-    m_ui->view->setColumnHidden(ATZENTA_OTHER_PHONE_1, true);
-    m_ui->view->setColumnHidden(ATZENTA_OTHER_PHONE_2, true);
-    m_ui->view->setColumnHidden(ATZENTA_HOME_FAX, true);
-    m_ui->view->setColumnHidden(ATZENTA_WORK_FAX, true);
-    m_ui->view->setColumnHidden(ATZENTA_HOME_EMAIL, true);
-    m_ui->view->setColumnHidden(ATZENTA_WORK_EMAIL, true);
-    m_ui->view->setColumnHidden(ATZENTA_HOME_URL, true);
-    m_ui->view->setColumnHidden(ATZENTA_WORK_URL, true);
-    m_ui->view->setColumnHidden(ATZENTA_HOME_ADDRESS, true);
-    m_ui->view->setColumnHidden(ATZENTA_HOME_CITY, true);
-    m_ui->view->setColumnHidden(ATZENTA_HOME_ZIP_CODE, true);
-    m_ui->view->setColumnHidden(ATZENTA_HOME_COUNTRY, true);
-    m_ui->view->setColumnHidden(ATZENTA_WORK_ADDRESS, true);
-    m_ui->view->setColumnHidden(ATZENTA_WORK_CITY, true);
-    m_ui->view->setColumnHidden(ATZENTA_WORK_ZIP_CODE, true);
-    m_ui->view->setColumnHidden(ATZENTA_WORK_COUNTRY, true);
-    m_ui->view->setColumnHidden(ATZENTA_NOTES, true);
-    m_ui->view->setSortingEnabled(true);
-    m_ui->view->sortByColumn(ATZENTA_NAME, Qt::AscendingOrder);
-    m_ui->view->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_header = m_ui->view->horizontalHeader();
-    m_ui->view->resizeColumnsToContents();
-    m_header->setStretchLastSection(true);
-    m_ui->searchButton->setText(QString::fromWCharArray(L"Search..."));
-} // end MainWindow::resetModelViewLayout
+    QApplication::quit();
+} // end MainWindow::on_pushButtonExit_clicked
