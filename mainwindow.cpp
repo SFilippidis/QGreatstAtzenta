@@ -196,7 +196,7 @@ void MainWindow::on_quitButton_clicked()
 
 void MainWindow::on_searchButton_clicked()
 {
-    if (m_ui->searchButton->text()==QString::fromWCharArray(L"Show all")) {
+    if (m_ui->searchButton->text() == QString::fromWCharArray(L"Show all")) {
         resetModelViewLayout();
         setWindowTitle(QString::fromWCharArray(L"QGreatstAtzenta"));
         m_ui->searchButton->setText(QString::fromWCharArray(L"Search..."));
